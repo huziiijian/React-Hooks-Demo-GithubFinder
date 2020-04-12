@@ -7,7 +7,7 @@ export default (state, action) => {
     case SEARCH_USERS:
       console.log(state)
       return {
-        ...state,//已经改变了状态就得返回状态
+        ...state,//展开原有状态，改写部分状态，返回新状态
         users: action.payload,//dispatch传递的参数
         loading: false
       };
