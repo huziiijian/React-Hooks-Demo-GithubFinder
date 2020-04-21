@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
   githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
 }
 
+// 也可以将dispatch和state作为value传递给组件后再执行逻辑，这样的优点是更加直观，但封装度不高。
 const GithubState = props => {
   const initialState = {
     users: [],
@@ -80,7 +81,7 @@ const GithubState = props => {
 
   return (
     <GithubContext.Provider
-      value={{
+      value={{ // hooks函数发送方法和state，也可以发送dispatch和state，让UI组件自己处理方法逻辑。
         users: state.users,
         user: state.user,
         repos: state.repos,
