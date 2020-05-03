@@ -103,7 +103,7 @@ const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
   const { getUser, loading, user, repos, getUserRepos } = githubContext;
 
-  useEffect(() => {//生命周期函数的代替
+  useEffect(() => {//生命周期函数里发起异步请求已解决hooks不含middleWares(无法异步请求)的问题
     getUser(match.params.login);
     getUserRepos(match.params.login);
     // eslint-disable-next-line
